@@ -13,9 +13,8 @@ class HelloController extends AbstractController
      */
     public function helloWorld()
     {
-        return new Response(
-            '<html><body>Hello World!</body></html>'
-        );
+        return $this->render('hello/hello_world.html.twig', [
+        ]);
     }
 
 
@@ -29,9 +28,9 @@ class HelloController extends AbstractController
             $worlds .= 'world ';
         }
 
-        return new Response(
-            "<html><body>Hello $worlds</body></html>"
-        );
+        return $this->render('hello/hello_firstname.html.twig', [
+            'worlds' => $worlds,
+        ]);
     }
 
 
@@ -40,8 +39,8 @@ class HelloController extends AbstractController
      */
     public function helloFirstname($firstname = 'World')
     {
-        return new Response(
-            "<html><body>Hello $firstname</body></html>"
-        );
+        return $this->render('hello/hello_firstname.html.twig', [
+            'name' => $firstname,
+        ]);
     }
 }
