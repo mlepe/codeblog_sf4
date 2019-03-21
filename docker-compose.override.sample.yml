@@ -1,0 +1,12 @@
+version: '3.2'
+services:
+  web:
+    container_name: codeblog-web
+    labels:
+     - traefik.frontend.rule=Host:codeblog.local
+    environment:
+      APP_ENV: dev
+      APP_RUBBON_ENV: dev
+
+  db:
+    container_name: codeblog-db

@@ -1,0 +1,22 @@
+version: '3.2'
+services:
+  web:
+#    # build and image are for the ci
+    build: .
+    volumes:
+      - .:/var/www
+      - $HOME/.composer:/root/.composer
+      - $HOME/.composer:/.composer
+    environment:
+      # if you change those param don't forget to redo your docker-compose up -d
+      DATABASE_URL: mysql://root:root@mysql:3306/codeblog
+      APP_ENV: dev
+      APP_SECRET: 8612dff74ab8516cdb6354f4c58ed7b8
+
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: codeblog
+      MYSQL_USER: codeblog
+      MYSQL_PASSWORD: codeblog
