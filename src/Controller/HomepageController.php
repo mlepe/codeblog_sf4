@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Article;
 use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,14 +14,19 @@ class HomepageController extends AbstractController
      */
     public function homepage()
     {
-        $category = new Category();
-        $category->setName('Php');
+        $categories = $this
+            ->getDoctrine()
+            ->getRepository(Category::class)
+            ->findAll();
 
-        $category2 = new Category();
-        $category2->setName('Java');
+        $article = $this
+            ->getDoctrine()
+            ->getRepository(Article::class)
+            ->getLastArticle();
 
         return $this->render('homepage/home.html.twig', [
-            'categories' => array($category, $category2),
+            'categories' => $categories,
+            'article' => $article,
         ]);
     }
 

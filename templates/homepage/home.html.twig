@@ -49,15 +49,16 @@
                 <div class="post-preview">
                     <a href="#TODO">
                         <h4 class="">
-                            Exemple de post
+                            {{ article.title }}
                         </h4>
                         <h5 class="post-subtitle">
-                            L'intelligent est un idiot qui a réussi.
+                            {{ article.content }}
                         </h5>
                     </a>
                     <p class="post-meta">Posted by
                         <a href="#TODO">Renaud</a>
-                        le 04/03/2019</p>
+                        le
+                        {{ article.createdAt|date }}</p>
                 </div>
                 <hr>
                 <!-- Pager -->
