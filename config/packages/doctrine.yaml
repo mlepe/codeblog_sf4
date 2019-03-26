@@ -9,6 +9,7 @@ doctrine:
     dbal:
         # configure these for your database server
         driver: 'pdo_mysql'
+        # for mariadb user, change it to  erver_version: 'mariadb-10.1.29'
         server_version: '5.7'
         charset: utf8mb4
         default_table_options:

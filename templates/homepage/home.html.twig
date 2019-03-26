@@ -43,7 +43,7 @@
             <div class="col-lg-4 col-md-10">
 
                 {% for category in categories %}
-                    <div>{{ category.name }}</div>
+                    <div>{{ category.name }} ({{ category.articles|length }})</div>
                 {% endfor %}
 
                 <div class="post-preview">
@@ -55,8 +55,8 @@
                             {{ article.content }}
                         </h5>
                     </a>
-                    <p class="post-meta">Posted by
-                        <a href="#TODO">Renaud</a>
+                    <p class="post-meta">
+                        <a href="{{ path('category_show', { 'id' : article.category.id }) }}"> {{ article.category.name }}</a>
                         le
                         {{ article.createdAt|date }}</p>
                 </div>
