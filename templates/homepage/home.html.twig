@@ -55,6 +55,8 @@
                             {{ article.content }}
                         </h5>
                     </a>
+                    {# article \App\Entity\Article #}
+                    <img src="{{ asset('uploads/article/' ~ article.image) }}"/>
                     <p class="post-meta">
                         <a href="{{ path('category_show', { 'id' : article.category.id }) }}"> {{ article.category.name }}</a>
                         le
